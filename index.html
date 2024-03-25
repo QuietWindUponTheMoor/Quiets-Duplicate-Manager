@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duplicate File Checker</title>
+    <link rel="stylesheet" href="./stylesheets/compiled/main.css">
+</head>
+<body>
+    <main class="col">
+        <h1 class="page-title">Setup</h1>
+        <h3 class="section-header" style="color: red;">NOTE: You will need at least the same amount of space available on your hard drive as what your total search directory size is.</h3>
+        <h3 class="section-header" style="color: gold;">Example: If your search directory is 100GB in size, you must have at least 100GB of available space on your hard drive.</h3>
+        
+        <div class="process-setup col">
+            <!-- Checkboxes -->
+            <h3 class="section-header">Settings:</h3>
+            <div class="setting-section checkbox-section col">
+                <!-- Delete when finished checkbox -->
+                <div class="checkbox-setting row">
+                    <label for="archive-dir">Delete when finished:</label>
+                    <input class="checkbox" type="checkbox" id="delete-when-finished-setting"/>
+                </div>
+                <!-- Include all duplicates checkbox -->
+                <!--<div class="checkbox-setting row">
+                    <label for="archive-dir">Include all duplicates:</label>
+                    <input class="checkbox" type="checkbox" id="include-all-duplicates-setting"/>
+                </div>-->
+            </div>
+            <!-- Search dir select -->
+            <div class="setting-section col">
+                <label for="search-dir">Select a directory to search in:</label>
+                <input class="hidden" type="file" id="search-dir" webkitdirectory directory nwdirectory/>
+                <button class="btn-main" id="search-dir-button" type="button">Select Search Directory</button>
+            </div>
+            <!-- Archive dir select -->
+            <div class="setting-section col" id="archive-dir-section">
+                <label for="archive-dir">Select a directory to use as an archive:</label>
+                <input class="hidden" type="file" id="archive-dir" webkitdirectory directory nwdirectory/>
+                <button class="btn-main" id="archive-dir-button" type="button">Select An Archive Directory</button>
+            </div>
+            <!-- Finish setup and begin -->
+            <div class="setting-section col">
+                <label for="archive-dir">Start when ready</label>
+                <button class="btn-main" id="start-process" type="button" onclick="">Start Scan</button>
+            </div>
+        </div>
+    </main>
+
+    <main class="col progress-modal">
+        <h1 class="page-title" id="progress-title">Preparing, please wait... (This may take a while)</h1>
+        <div class="current-progress col">
+            <div class="progress-bar-container col">
+                <label class="progress-percent" for="progress-bar">0% / null</label>
+                <progress class="progress-bar" id="progress-bar" value="0" max="100"></progress>
+            </div>
+            <p class="current-file">null</p>
+        </div>
+        <h4>Console</h4>
+        <div class="console col">
+            <p class="text-line">Starting... progress will be displayed here.</p>
+        </div>
+        <div class="finished-data col">
+            <div class="data col">
+
+                <h3 class="section-header">Results:</h3>
+                <h4>Settings:</h4>
+                <div class="results col">
+                    <!--<p class="item" id="include-all-dupes-setting-result"><b>Include All Duplicates:</b> null</p>-->
+                    <p class="item" id="delete-when-finished-setting-result"><b>Delete When Finished:</b> null</p>
+                </div>
+                <h4>Details:</h4>
+                <div class="results col">
+                    <p class="item" id="total-scanned-size-result"><b>Total Scanned Size:</b> null</p>
+                    <p class="item" id="total-groups-result"><b>Groups Created:</b> null</p>
+                    <p class="item" id="scanned-files-count-result"><b>Scanned Files:</b> null</p>
+                </div>
+
+                <h3 class="section-header">Groups:</h3>
+                <div class="files-container col" id="groups">
+                    <!-- Templating/Placeholder -->
+                    <!--<div class="group col">
+                        <div class="group-data col">
+                            <div class="group-meta">
+                                <p class="label">Group Size:</p>
+                                <p class="data">11.32MB</p>
+                            </div>
+                            <div class="group-meta">
+                                <p class="label">Files Count:</p>
+                                <p class="data">3</p>
+                            </div>
+                        </div>
+                        <div class="file row">
+                            <div class="file-image-container"><img class="file-image" src="C:/Users/15632/Desktop/DUPLCIATE CHECKING TESTING/archive/20170703_192318 - Copy (2).jpg"/></div>
+                            <div class="text-data col">
+                                <div class="file-meta row">
+                                    <p class="label">Original Path:</p>
+                                    <p class="data">C:/Users/15632/Desktop/DUPLCIATE CHECKING TESTING/search/20170703_192318 - Copy (2).jpg</p>
+                                </div>
+                                <div class="file-meta row">
+                                    <p class="label">Archived Path:</p>
+                                    <p class="data">C:/Users/15632/Desktop/DUPLCIATE CHECKING TESTING/archive/20170703_192318 - Copy (2).jpg</p>
+                                </div>
+                                <div class="file-meta row">
+                                    <p class="label">File Type:</p>
+                                    <p class="data">Image</p>
+                                </div>
+                                <div class="file-meta row">
+                                    <p class="label">File Size:</p>
+                                    <p class="data">1.77MB</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="file row">
+                            <div class="file-image-container"><img class="file-image" src="C:/Users/15632/Desktop/DUPLCIATE CHECKING TESTING/archive/20170703_192318 - Copy (2).jpg"/></div>
+                            <div class="text-data col">
+                                <div class="file-meta row">
+                                    <p class="label">Original Path:</p>
+                                    <p class="data">C:/Users/15632/Desktop/DUPLCIATE CHECKING TESTING/search/20170703_192318 - Copy (2).jpg</p>
+                                </div>
+                                <div class="file-meta row">
+                                    <p class="label">Archived Path:</p>
+                                    <p class="data">C:/Users/15632/Desktop/DUPLCIATE CHECKING TESTING/archive/20170703_192318 - Copy (2).jpg</p>
+                                </div>
+                                <div class="file-meta row">
+                                    <p class="label">File Type:</p>
+                                    <p class="data">Image</p>
+                                </div>
+                                <div class="file-meta row">
+                                    <p class="label">File Size:</p>
+                                    <p class="data">1.77MB</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+
+                <h3 class="section-header">Scanned Files:</h3>
+                <div class="files col" id="individual-files">
+                    <!-- Templating/Placeholder -->
+                    <!--<div class="file row">
+                        <div class="text-data col">
+                            <div class="file-meta row">
+                                <p class="label">Original Path:</p>
+                                <p class="data">C:/Users/15632/Desktop/DUPLCIATE CHECKING TESTING/search/20170703_192318 - Copy (2).jpg</p>
+                            </div>
+                            <div class="file-meta row">
+                                <p class="label">File Type:</p>
+                                <p class="data">Image</p>
+                            </div>
+                            <div class="file-meta row">
+                                <p class="label">File Size:</p>
+                                <p class="data">1.77MB</p>
+                            </div>
+                        </div>
+                    </div>-->
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script type="text/javascript" src="./frontend/start.js"></script>
+</body>
+</html>

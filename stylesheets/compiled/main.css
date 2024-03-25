@@ -1,0 +1,314 @@
+* {
+  box-sizing: border-box;
+}
+
+*:not(input, style, script, noscript, title) {
+  display: flex;
+}
+
+.colors {
+  background-color: #181818;
+  background-color: #252525;
+  background-color: #323232;
+  background-color: #3e3e3e;
+  background-color: #4b4b4b;
+  background-color: #585858;
+  background-color: #178C00;
+  background-color: #d7d7d7;
+  background-color: #a4a4a4;
+}
+
+main {
+  margin: 1rem;
+  width: 20%;
+}
+
+html {
+  flex-direction: column;
+  background-color: #181818;
+  color: #d7d7d7;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.col {
+  flex-direction: column;
+}
+
+.text-input-main, .btn-main {
+  margin: 0.75rem;
+  padding: 0.25rem;
+  background-color: #3e3e3e;
+  border: 2px solid #178C00;
+  border-radius: 8px;
+  color: #d7d7d7;
+}
+.text-input-main::-moz-placeholder, .btn-main::-moz-placeholder {
+  color: #a4a4a4;
+}
+.text-input-main::placeholder, .btn-main::placeholder {
+  color: #a4a4a4;
+}
+.text-input-main:focus, .btn-main:focus {
+  outline: 2px solid #178C00;
+}
+
+.btn-main {
+  background-color: #178C00;
+  cursor: pointer;
+}
+.btn-main:hover {
+  opacity: 0.75;
+}
+
+.hidden {
+  display: none;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  aspect-ratio: 1/1;
+}
+
+progress {
+  border: 0;
+  height: 15px;
+  border-radius: 8px;
+  background-color: white;
+  margin-bottom: 0.25rem;
+  margin-top: 0.25rem;
+}
+
+progress::-webkit-progress-bar {
+  border: 0;
+  height: 15px;
+  border-radius: 8px;
+  background-color: white;
+  border: 2px solid white;
+}
+
+progress::-webkit-progress-value {
+  border: 0;
+  height: 15px;
+  border-radius: 8px;
+  background-color: #00D90D;
+}
+
+progress::-moz-progress-bar {
+  border: 0;
+  height: 15px;
+  border-radius: 8px;
+  background-color: white;
+  border: 2px solid white;
+}
+
+.setting-section {
+  margin: 0.5rem;
+  gap: 0.15rem;
+}
+.setting-section .section-header {
+  font-size: 130%;
+}
+.setting-section label, .setting-section .btn-main, .setting-section .text-input-main {
+  margin: 0;
+}
+
+.checkbox-section {
+  margin: 0;
+  gap: 0;
+}
+.checkbox-section .checkbox-setting {
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem;
+}
+.checkbox-section .checkbox-setting:nth-child(even) {
+  background-color: #323232;
+}
+.checkbox-section .checkbox-setting:nth-child(odd) {
+  background-color: #3e3e3e;
+}
+.checkbox-section .checkbox-setting:first-child {
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.checkbox-section .checkbox-setting:last-child {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.progress-modal {
+  display: none;
+  position: absolute;
+  width: 85%;
+  height: 85%;
+  max-height: 85%;
+  overflow: hidden;
+  overflow-y: scroll;
+  top: 1rem;
+  left: 50%;
+  transform: translate(-50%);
+  padding: 1rem;
+  background-color: #323232;
+  border-radius: 8px;
+  border: 2px solid white;
+}
+.progress-modal::-webkit-scrollbar {
+  width: 0;
+}
+.progress-modal .current-progress {
+  width: 100%;
+}
+.progress-modal .current-progress .progress-bar-container {
+  display: none;
+  width: 100%;
+}
+.progress-modal .current-progress .progress-bar-container .progress-percent {
+  width: 100%;
+  font-weight: bold;
+}
+.progress-modal .current-progress .progress-bar-container .progress-bar {
+  width: 100%;
+}
+.progress-modal .current-progress .current-file {
+  display: none;
+  font-size: 70%;
+  font-weight: bold;
+}
+
+.finished-data {
+  display: none;
+}
+.finished-data .data .results .item:nth-child(even) {
+  background-color: #3e3e3e;
+}
+.finished-data .data .results .item:nth-child(odd) {
+  background-color: #252525;
+}
+.finished-data .data .results .item:first-child {
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.finished-data .data .results .item:last-child {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.finished-data .data .results .item {
+  padding: 0.5rem;
+  font-size: 80%;
+}
+.finished-data .data .results .item b {
+  font-size: 100%;
+  margin-right: 1rem;
+}
+.finished-data .data .files-container .group:nth-child(even) {
+  background-color: #3e3e3e;
+}
+.finished-data .data .files-container .group:nth-child(odd) {
+  background-color: #252525;
+}
+.finished-data .data .files-container .group:first-child {
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+.finished-data .data .files-container .group:last-child {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+.finished-data .data .files-container .group {
+  padding: 0.5rem;
+  gap: 0.5rem;
+}
+.finished-data .data .files-container .group .group-data {
+  padding-bottom: 0.5rem;
+  gap: 0.25rem;
+  border-bottom: 1px solid white;
+}
+.finished-data .data .files-container .group .group-data .group-meta {
+  gap: 0.5rem;
+}
+.finished-data .data .files-container .group .group-data .group-meta .label {
+  font-weight: bold;
+}
+.finished-data .data .files-container .group .group-data .group-meta .label, .finished-data .data .files-container .group .group-data .group-meta .data {
+  font-size: 80%;
+}
+
+#group-disclaimer {
+  font-weight: bold;
+  font-size: 100%;
+}
+
+.file {
+  gap: 0.5rem;
+}
+.file .file-image-container {
+  width: 100px;
+  max-height: 300px;
+}
+.file .file-image-container .file-image {
+  width: 100%;
+  height: 100%;
+}
+.file .text-data {
+  gap: 0.25rem;
+}
+.file .text-data .file-meta {
+  gap: 0.5rem;
+}
+.file .text-data .file-meta .label {
+  font-weight: bold;
+}
+.file .text-data .file-meta .label, .file .text-data .file-meta .data {
+  font-size: 80%;
+}
+
+#individual-files .file:nth-child(even) {
+  background-color: #3e3e3e;
+}
+#individual-files .file:nth-child(odd) {
+  background-color: #252525;
+}
+#individual-files .file:first-child {
+  border-top-right-radius: 8px;
+  border-top-left-radius: 8px;
+}
+#individual-files .file:last-child {
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+#individual-files .file {
+  padding: 0.5rem;
+}
+
+.console {
+  width: 100%;
+  height: 500px !important;
+  min-height: 500px !important;
+  max-height: 500px !important;
+  padding: 0.5rem;
+  gap: 0.75rem;
+  border: 1px solid lightgray;
+  border-radius: 8px;
+  background-color: #191919;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+.console .text-line {
+  color: lightgray;
+}
+.console .error {
+  color: red !important;
+}
+.console .success {
+  color: greenyellow !important;
+}/*# sourceMappingURL=main.css.map */

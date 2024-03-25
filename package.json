@@ -1,0 +1,39 @@
+{
+  "name": "duplicatefilechecker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "backend/main.js",
+  "scripts": {
+    "start": "electron .",
+    "package:win": "electron-builder --win",
+    "package:mac": "electron-builder --mac",
+    "package:linux": "electron-builder --linux"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^28.2.3",
+    "electron-builder": "^24.13.3"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "fs": "^0.0.1-security",
+    "path": "^0.12.7",
+    "sqlite3": "^5.1.7",
+    "util": "^0.12.5"
+  },
+  "build": {
+    "appId": "com.app.quietsdupechecker",
+    "productName": "Quiet'sDuplicateFileManager",
+    "directories": {
+      "output": "dist"
+    },
+    "nsis": {
+      "script": "build/installer.nsh"
+    },
+    "win": {
+      "target": "nsis"
+    }
+  }
+}

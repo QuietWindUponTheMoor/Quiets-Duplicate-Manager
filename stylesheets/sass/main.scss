@@ -1,0 +1,367 @@
+// ALL
+* {
+    box-sizing: border-box;
+}
+*:not(input, style, script, noscript, title) {
+    display: flex;
+}
+
+// Themes
+// Colors
+// Backgrounds
+$_60: #181818;
+$_50: lighten($_60, 5%);
+$_40: lighten($_50, 5%);
+$_30: lighten($_40, 5%);
+$_20: lighten($_30, 5%);
+$_10: lighten($_20, 5%);
+
+$theme: #178C00;
+$theme2: #C200D9;
+// Text
+$t60: lighten($_10, 50%);
+$t50: darken($t60, 20%);
+$success: #00D90D;
+$error: #E30000;
+
+// Button colors
+$gamebtn: #007AD9;
+
+.colors {
+    background-color: $_60;
+    background-color: $_50;
+    background-color: $_40;
+    background-color: $_30;
+    background-color: $_20;
+    background-color: $_10;
+    background-color: $theme;
+    background-color: $t60;
+    background-color: $t50;
+}
+
+// Fonts
+$fmain: 'Trebuchet MS', sans-serif;
+
+// Borders
+$blg: 10px;
+$bmed: 8px;
+$bsm: 5px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Main
+main {
+    margin: 1rem;
+    width: 20%;
+}
+
+
+
+// Misc
+html {
+    flex-direction: column;
+    background-color: $_60;
+    color: $t60;
+    font-family: $fmain;
+}
+p {
+    margin: 0;
+    padding: 0;
+}
+.row {
+    flex-direction: row;
+}
+.col {
+    flex-direction: column;
+}
+.text-input-main, .btn-main {
+    margin: 0.75rem;
+    padding: 0.25rem;
+    background-color: $_30;
+    border: 2px solid $theme;
+    border-radius: $bmed;
+    color: $t60;
+    &::placeholder {
+        color: $t50;
+    }
+    &:focus {
+        outline: 2px solid $theme;
+    }
+}
+.btn-main {
+    background-color: $theme;
+    cursor: pointer;
+    &:hover {
+        opacity: 0.75;
+    }
+}
+.hidden {
+    display: none;
+}
+.checkbox {
+    width: 20px;
+    height: 20px;
+    aspect-ratio: 1 / 1;
+}
+progress {
+    border: 0;
+    height: 15px;
+    border-radius: $bmed;
+    background-color: white;
+    margin-bottom: 0.25rem;
+    margin-top: 0.25rem;
+}
+progress::-webkit-progress-bar {
+    border: 0;
+    height: 15px;
+    border-radius: $bmed;
+    background-color: white;
+    border: 2px solid white;
+}
+progress::-webkit-progress-value {
+    border: 0;
+    height: 15px;
+    border-radius: $bmed;
+    background-color: $success;
+}
+progress::-moz-progress-bar {
+    border: 0;
+    height: 15px;
+    border-radius: $bmed;
+    background-color: white;
+    border: 2px solid white;
+}
+
+
+
+
+
+
+
+// Settings sections
+.setting-section {
+    margin: 0.5rem;
+    gap: 0.15rem;
+    .section-header {
+        font-size: 130%;
+    }
+    label, .btn-main, .text-input-main {
+        margin: 0;
+    }
+}
+.checkbox-section {
+    margin: 0;
+    gap: 0;
+    .checkbox-setting {
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.25rem;
+        &:nth-child(even) {
+            background-color: $_40;
+        }
+        &:nth-child(odd) {
+            background-color: $_30;
+        }
+        &:first-child {
+            border-top-right-radius: $bmed;
+            border-top-left-radius: $bmed;
+        }
+        &:last-child {
+            border-bottom-right-radius: $bmed;
+            border-bottom-left-radius: $bmed;
+        }
+    }
+}
+
+
+
+
+
+// Progress modal
+.progress-modal {
+    display: none;
+    position: absolute;
+    width: 85%;
+    height: 85%;
+    max-height: 85%;
+    overflow: hidden;
+    overflow-y: scroll;
+    top: 1rem;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 1rem;
+    background-color: $_40;
+    border-radius: $bmed;
+    border: 2px solid white;
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+    .current-progress {
+        width: 100%;
+        .progress-bar-container {
+            display: none;
+            width: 100%;
+            .progress-percent {
+                width: 100%;
+                font-weight: bold;
+            }
+            .progress-bar {
+                width: 100%;
+            }
+        }
+        .current-file {
+            display: none;
+            font-size: 70%;
+            font-weight: bold;
+        }
+    }
+}
+
+// Finished data
+.finished-data {
+    display: none;
+    .data {
+        .results {
+            .item:nth-child(even) {
+                background-color: $_30;
+            }
+            .item:nth-child(odd) {
+                background-color: $_50;
+            }
+            .item:first-child {
+                border-top-right-radius: $bmed;
+                border-top-left-radius: $bmed;
+            }
+            .item:last-child {
+                border-bottom-right-radius: $bmed;
+                border-bottom-left-radius: $bmed;
+            }
+            .item {
+                padding: 0.5rem;
+                font-size: 80%;
+                b {
+                    font-size: 100%;
+                    margin-right: 1rem;
+                }
+            }
+        }
+        .files-container {
+            .group:nth-child(even) {
+                background-color: $_30;
+            }
+            .group:nth-child(odd) {
+                background-color: $_50;
+            }
+            .group:first-child {
+                border-top-right-radius: $bmed;
+                border-top-left-radius: $bmed;
+            }
+            .group:last-child {
+                border-bottom-right-radius: $bmed;
+                border-bottom-left-radius: $bmed;
+            }
+            .group {
+                padding: 0.5rem;
+                gap: 0.5rem;
+                .group-data {
+                    padding-bottom: 0.5rem;
+                    gap: 0.25rem;
+                    border-bottom: 1px solid white;
+                    .group-meta {
+                        gap: 0.5rem;
+                        .label {
+                            font-weight: bold;
+                        }
+                        .label, .data {
+                            font-size: 80%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Applies to GROUPED files AND individual files!!!
+#group-disclaimer {
+    font-weight: bold;
+    font-size: 100%;
+}
+.file {
+    gap: 0.5rem;
+    .file-image-container {
+        width: 100px;
+        max-height: 300px;
+        .file-image {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .text-data {
+        gap: 0.25rem;
+        .file-meta {
+            gap: 0.5rem;
+            .label {
+                font-weight: bold;
+            }
+            .label, .data {
+                font-size: 80%;
+            }
+        }
+    }
+}
+#individual-files {
+    .file:nth-child(even) {
+        background-color: $_30;
+    }
+    .file:nth-child(odd) {
+        background-color: $_50;
+    }
+    .file:first-child {
+        border-top-right-radius: $bmed;
+        border-top-left-radius: $bmed;
+    }
+    .file:last-child {
+        border-bottom-right-radius: $bmed;
+        border-bottom-left-radius: $bmed;
+    }
+    .file {
+        padding: 0.5rem;
+    }
+}
+
+
+
+// Console
+.console {
+    width: 100%;
+    height: 500px !important;
+    min-height: 500px !important;
+    max-height: 500px !important;
+    padding: 0.5rem;
+    gap: 0.75rem;
+    border: 1px solid lightgray;
+    border-radius: $bmed;
+    background-color: #191919;
+    overflow: hidden;
+    overflow-y: scroll;
+    .text-line {
+        color: lightgray;
+    }
+    .error {
+        color: red !important;
+    }
+    .success {
+        color: greenyellow !important;
+    }
+}
