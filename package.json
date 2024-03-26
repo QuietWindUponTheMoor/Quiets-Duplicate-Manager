@@ -50,15 +50,21 @@
       "icon": "assets/icons/icon.png"
     },
     "files": [
-      "dist/**/*",
+      "assets/**/*",
+      "backend/**/*",
+      "frontend/**/*",
       "node_modules/**/*",
+      "preload_settings/**/*",
+      "stylesheets/**/*",
+      "index.html",
+      "dist/**/*",
       "!backend/process_old.js",
-      ".github/**/*",
-      ".gitignore",
-      "cache/**/*",
-      ".gitattributes",
-      "LICENSE",
-      "README.md"
+      "!.github/**/*",
+      "!.gitignore",
+      "!cache/**/*",
+      "!.gitattributes",
+      "!LICENSE",
+      "!README.md"
     ]
   }
 }
