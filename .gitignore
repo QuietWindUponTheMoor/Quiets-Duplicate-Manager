@@ -1,3 +1,4 @@
 /backend/process_old.js
 cache.db
 node_modules/
+dist/
