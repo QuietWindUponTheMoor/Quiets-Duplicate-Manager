@@ -1,70 +1,70 @@
 {
-  "name": "quietsduplicatemanager",
-  "version": "1.0.0-RC.1",
-  "description": "Quiet's Duplicate Manager is an Electron.js-based desktop application that is currently in the works. It will offer a range of basic features like including any/all files that are duplicates, giving the option to choose whether to delete or archive duplicates, etc. As more features roll out, more will be added here.",
-  "main": "backend/main.js",
-  "scripts": {
-    "start": "electron .",
-    "package:win": "electron-builder --win",
-    "package:mac": "electron-builder --mac",
-    "package:linux": "electron-builder --linux",
-    "build": "electron-builder"
-  },
-  "keywords": [
-    "duplicate",
-    "dupes",
-    "duplicates",
-    "file",
-    "files",
-    "duplicate files",
-    "manager",
-    "duplicate fixer",
-    "fixer",
-    "file manager",
-    "duplicate file manager",
-    "duplicate file deleter",
-    "archive",
-    "archival"
-  ],
-  "author": "QuietWindUponTheMoor",
-  "license": "ISC",
-  "devDependencies": {
-    "electron": "^28.2.3",
-    "electron-builder": "^24.13.3"
-  },
-  "dependencies": {
-    "crypto": "^1.0.1",
-    "fs": "^0.0.1-security",
-    "path": "^0.12.7",
-    "sqlite3": "^5.1.7",
-    "util": "^0.12.5"
-  },
-  "build": {
-    "appId": "com.app.quietsduplicatemanager",
-    "productName": "Quiet'sDuplicateManager",
-    "directories": {
-      "output": "dist"
+    "name": "quietsduplicatemanager",
+    "version": "1.0.0-RC.1",
+    "description": "Quiet's Duplicate Manager is an Electron.js-based desktop application that is currently in the works. It will offer a range of basic features like including any/all files that are duplicates, giving the option to choose whether to delete or archive duplicates, etc. As more features roll out, more will be added here.",
+    "main": "backend/main.js",
+    "scripts": {
+        "start": "electron .",
+        "package:win": "electron-builder --win",
+        "package:mac": "electron-builder --mac",
+        "package:linux": "electron-builder --linux",
+        "build": "electron-builder"
     },
-    "win": {
-      "target": "portable",
-      "icon": "assets/icons/icon.png"
+    "keywords": [
+        "duplicate",
+        "dupes",
+        "duplicates",
+        "file",
+        "files",
+        "duplicate files",
+        "manager",
+        "duplicate fixer",
+        "fixer",
+        "file manager",
+        "duplicate file manager",
+        "duplicate file deleter",
+        "archive",
+        "archival"
+    ],
+    "author": "QuietWindUponTheMoor",
+    "license": "ISC",
+    "devDependencies": {
+        "electron": "^28.2.3",
+        "electron-builder": "^24.13.3"
     },
-    "files": [
-      "assets/**/*",
-      "backend/**/*",
-      "frontend/**/*",
-      "node_modules/**/*",
-      "preload_settings/**/*",
-      "stylesheets/**/*",
-      "index.html",
-      "dist/**/*",
-      "!backend/process_old.js",
-      "!.github/**/*",
-      "!.gitignore",
-      "!cache/**/*",
-      "!.gitattributes",
-      "!LICENSE",
-      "!README.md"
-    ]
-  }
+    "dependencies": {
+        "crypto": "^1.0.1",
+        "fs": "^0.0.1-security",
+        "path": "^0.12.7",
+        "sqlite3": "^5.1.7",
+        "util": "^0.12.5"
+    },
+    "build": {
+        "appId": "com.app.quietsduplicatemanager",
+        "productName": "Quiet'sDuplicateManager",
+        "directories": {
+          "output": "dist"
+        },
+        "win": {
+          "target": "portable",
+          "icon": "assets/icons/icon.png"
+        },
+        "files": [
+          "assets/**/*",
+          "backend/**/*",
+          "frontend/**/*",
+          "node_modules/**/*",
+          "preload_settings/**/*",
+          "stylesheets/**/*",
+          "index.html",
+          "dist/**/*",
+          "!backend/process_old.js",
+          "!.github/**/*",
+          "!.gitignore",
+          "!cache/**/*",
+          "!.gitattributes",
+          "!LICENSE",
+          "!README.md"
+        ]
+    }
 }
