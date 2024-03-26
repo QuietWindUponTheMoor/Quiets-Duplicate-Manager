@@ -168,18 +168,21 @@ const consoleEl = document.querySelector(".console");
 electron.receive("console-log", log => {
     log.forEach(() => {
         // Append to console
+        console.log(log);
         consoleEl.insertAdjacentHTML("afterbegin", `<p class="text-line">${log}</p>`);
     });
 });
 electron.receive("console-success", log => {
     log.forEach(() => {
         // Append to console
+        console.log(log);
         consoleEl.insertAdjacentHTML("afterbegin", `<p class="text-line success">${log}</p>`);
     });
 });
 electron.receive("console-error", log => {
     log.forEach(() => {
         // Append to console
+        console.error(log);
         consoleEl.insertAdjacentHTML("afterbegin", `<p class="text-line error">${log}</p>`);
     });
 });

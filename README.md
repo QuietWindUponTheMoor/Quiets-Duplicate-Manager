@@ -22,6 +22,7 @@
 - sqlite3 ^5.1.7
 - util ^0.12.5
 
+----------------------------------------
 
 **As more achievements and milestones are accomplished, more will be added here:**
 

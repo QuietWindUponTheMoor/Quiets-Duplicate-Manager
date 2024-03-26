@@ -6,7 +6,7 @@ const { process_files, db } = require("./process");
 let win;
 
 // Application icon path
-const iconPath = path.join(__dirname, "assets", "icons", "icon.ico");
+const iconPath = "assets/icons/icon.png";
 
 // Main process listeners
 app.whenReady().then(async () => {
@@ -53,17 +53,17 @@ app.whenReady().then(async () => {
     });
 });
 app.on("window-all-closed", async() => {
-if (process.platform !== "darwin") {
-    // TEMPORARY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    await db.run("DELETE FROM all_files;");
+    if (process.platform !== "darwin") {
+        // TEMPORARY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        await db.run("DELETE FROM all_files;");
 
 
-    // Close the database connection
-    db.close();
+        // Close the database connection
+        db.close();
 
-    // Quit application
-    await app.quit();
-}
+        // Quit application
+        await app.quit();
+    }
 });
 app.on("activate", async () => {
     if (BrowserWindow.getAllWindows().length === 0) {
@@ -79,6 +79,7 @@ async function createWindow() {
     // Create the window
     win = new BrowserWindow({
         show: false,
+        autoHideMenuBar: true,
         webPreferences: {
             nodeIntegration: false, // Disable nodeIntegration
             contextIsolation: true, // Enable context isolation
@@ -93,5 +94,5 @@ async function createWindow() {
     win.loadFile("index.html");
 
     // Open DevTools
-    win.webContents.openDevTools();
+    //win.webContents.openDevTools();
 }

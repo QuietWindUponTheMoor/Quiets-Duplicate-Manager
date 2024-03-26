@@ -1,13 +1,14 @@
 {
   "name": "quietsduplicatemanager",
-  "version": "1.0.0",
+  "version": "1.0.0-RC.1",
   "description": "Quiet's Duplicate Manager is an Electron.js-based desktop application that is currently in the works. It will offer a range of basic features like including any/all files that are duplicates, giving the option to choose whether to delete or archive duplicates, etc. As more features roll out, more will be added here.",
   "main": "backend/main.js",
   "scripts": {
     "start": "electron .",
     "package:win": "electron-builder --win",
     "package:mac": "electron-builder --mac",
-    "package:linux": "electron-builder --linux"
+    "package:linux": "electron-builder --linux",
+    "build": "electron-builder"
   },
   "keywords": [
     "duplicate",
@@ -44,11 +45,20 @@
     "directories": {
       "output": "dist"
     },
-    "nsis": {
-      "script": "build/installer.nsh"
-    },
     "win": {
-      "target": "nsis"
-    }
+      "target": "portable",
+      "icon": "assets/icons/icon.png"
+    },
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*",
+      "!backend/process_old.js",
+      ".github/**/*",
+      ".gitignore",
+      "cache/**/*",
+      ".gitattributes",
+      "LICENSE",
+      "README.md"
+    ]
   }
 }

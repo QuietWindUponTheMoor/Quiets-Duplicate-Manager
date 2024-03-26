@@ -7,18 +7,8 @@ const { app, BrowserWindow, ipcMain, dialog } = require("electron");
 
 // Setup database
 const sqlite3 = require("sqlite3").verbose();
-const db = new sqlite3.Database(`cache/cache.db`);
-
-// Create database tables
-db.serialize(async () => {
-    await db.run(`CREATE TABLE IF NOT EXISTS all_files (
-        file_name_with_ext TEXT,
-        file_hash TEXT,
-        file_size_in_mb REAL,
-        file_original_path TEXT,
-        file_type TEXT
-    )`);
-});
+// Initialize db
+let db;
 
 // File system functions
 const readdir = promisify(fs.readdir);
@@ -59,6 +49,23 @@ class Startup {
         // Settings
         this.delete_when_finished = settings.delete_when_finished;
         //this.include_all_dupes = settings.include_all_dupes;
+
+        // Define database file paths
+        const dev_path = path.join("cache", "cache.db");
+        const release_path = path.join(__dirname, "cache", "cache.db");
+        this.log(dev_path, release_path);
+        const db = new sqlite3.Database(release_path);
+
+        // Create database tables
+        db.serialize(async () => {
+            await db.run(`CREATE TABLE IF NOT EXISTS all_files (
+                file_name_with_ext TEXT,
+                file_hash TEXT,
+                file_size_in_mb REAL,
+                file_original_path TEXT,
+                file_type TEXT
+            )`);
+        });
 
         // Get the reference to the window you want to send the message to
         this.win = BrowserWindow.getAllWindows()[0];
